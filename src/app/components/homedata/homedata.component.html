@@ -1,0 +1,6 @@
+@if($data()){
+    {{$data().length}}
+    <p-dataView [value]="$data()" emptyMessage="No hay información a mostrar" lazy="true" totalRecords="$data().length"/>
+}
+
+

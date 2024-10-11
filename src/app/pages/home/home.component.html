@@ -1,0 +1,13 @@
+<p>home works!</p>
+@if($state().loading){
+    <p-progressBar mode="indeterminate" [style]="{ height: '6px' }" />
+} @else if($state().error){
+    <p-messages [(value)]="$state().error" [enableService]="false" [severity]="'error'"/>
+} @else{
+    <h1>Datos</h1>
+    <app-homedata [data]="$state().data"/>
+}
+
+    
+
+
