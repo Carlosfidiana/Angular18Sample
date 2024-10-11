@@ -11,4 +11,5 @@ export const appConfig: ApplicationConfig = {
      withComponentInputBinding(),
      withRouterConfig({paramsInheritanceStrategy: 'always'})),
      provideHttpClient()]
+     
 };

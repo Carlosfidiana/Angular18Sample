@@ -4,7 +4,6 @@
 } @else if($state().error){
     <p-messages [(value)]="$state().error" [enableService]="false" [severity]="'error'"/>
 } @else{
-    <h1>Datos</h1>
     <app-homedata [data]="$state().data"/>
 }
 

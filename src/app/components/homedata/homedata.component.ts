@@ -1,11 +1,13 @@
-import { JsonPipe } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { Component, Input, signal } from '@angular/core';
+import { Button, ButtonModule } from 'primeng/button';
 import { DataViewModule } from 'primeng/dataview';
+import { TagModule } from 'primeng/tag';
 
 @Component({
   selector: 'app-homedata',
   standalone: true,
-  imports: [DataViewModule,JsonPipe],
+  imports: [DataViewModule,JsonPipe,CommonModule,ButtonModule,TagModule],
   templateUrl: './homedata.component.html',
   styleUrl: './homedata.component.css'
 })
