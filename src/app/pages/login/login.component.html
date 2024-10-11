@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div style="width:100%; height: 100vh; display: flex; justify-content: center; align-items: center;  ">
+    <p-card [style]="{ width: '360px' }">
+        <div class="flex justify-content-center">
+        <h2 class="text-center text-2xl font-bold m-0 pb-3">Iniciar Sesión</h2>
+        <p class="text-center text-gray-600 m-0">Usa tu cuenta de Google para acceder</p>
+        </div>
+      <div class="flex justify-content-center">
+        <button pButton 
+          type="button" 
+          label="Iniciar sesión con Google" 
+          class="p-button-outlined google-btn"
+          (click)="login()"
+        >
+          <img src="/assets/Google.png" alt="Google logo" class="google-logo mr-2" />
+        </button>
+      </div>
+    </p-card>
+  </div>

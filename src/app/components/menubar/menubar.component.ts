@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem, PrimeIcons } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menubar',
@@ -37,17 +38,38 @@ export class MenubarComponent {
     routerLinkActiveOptions: { exact: true },
     routerLink: '/favorites'
    },
-  { 
-    label: 'Compartir',
-    icon: PrimeIcons.SHARE_ALT,
-    command: () => {
-      //window.location.reload();
-    }
-   },
    { 
-    label: 'Sobre mi',
-    icon: PrimeIcons.USER,
+    label: 'Sobre el creador',
+    icon: PrimeIcons.LINKEDIN,
     url:'https://es.linkedin.com/in/carlosserranosanchez',
-   }
+   },
+   {
+    label: 'Inicio',
+    icon: PrimeIcons.HOME,
+    style: { 'margin-left': 'auto' },
+    items: [{
+      label: 'Compartir',
+      icon: PrimeIcons.SHARE_ALT,
+      command: () => {
+        //window.location.reload();
+        navigator.share({
+          title: 'Angular18Sample',
+          text: 'Angular18Sample',
+          url: window.location.href
+        })
+      }},
+       { label: 'Cerrar Sesión',
+        icon: PrimeIcons.SIGN_OUT,
+
+        command: () => {
+          this.auth.logout();
+        }
+       },
+    ],
+   
+  }
 ];
+  constructor(public auth:AuthService){
+  }
 }
+

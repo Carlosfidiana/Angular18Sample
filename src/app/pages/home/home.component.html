@@ -1,10 +1,13 @@
-<p>home works!</p>
+<p-breadcrumb 
+    class="max-w-full" 
+    [model]="path" 
+    [home]="home" />
 @if($state().loading){
     <p-progressBar mode="indeterminate" [style]="{ height: '6px' }" />
 } @else if($state().error){
     <p-messages [(value)]="$state().error" [enableService]="false" [severity]="'error'"/>
 } @else{
-    <app-homedata [data]="$state().data"/>
+    <app-homedata [data]="$state().data" (select)="seeRecipes($event)" />
 }
 
     

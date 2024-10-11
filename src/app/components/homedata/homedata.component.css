@@ -1,0 +1,22 @@
+  li{
+    list-style: none;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  li:hover{
+    background-color: var(--surface-hover);
+  }
+  .border-bottom-1 {
+    border-bottom: 1px solid var(--surface-border);
+  }
+  li:last-child {
+    border-bottom: none !important;
+  }
+  .card{
+    width: 100%;
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+    border-radius: 20px;
+    background-color: var(--surface-card);
+    color: var(--text-color);
+    padding: 0.5rem;
+  }

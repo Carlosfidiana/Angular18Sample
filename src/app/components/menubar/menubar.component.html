@@ -1,1 +1,3 @@
-<p-menubar [model]="items" />
+@if(auth.isLoggedIn){
+   <p-menubar [model]="items" /> 
+}

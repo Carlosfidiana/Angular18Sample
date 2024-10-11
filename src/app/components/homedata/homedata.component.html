@@ -1,7 +1,11 @@
 @if($data()){
-    @for(item of $data();track item.name){
-        {{item.name}}
-    }
+<div class="card">
+    <ul class="list-none p-0 m-0">
+      <li *ngFor="let item of $data()" class="p-3 border-bottom-1 surface-border" (click)="click(item.name)">
+        <div class="text-xl">{{item.name}}</div>
+      </li>
+    </ul>
+  </div>
 }
 
 

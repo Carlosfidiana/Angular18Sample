@@ -4,12 +4,13 @@ import { JsonPipe } from '@angular/common';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { MessagesModule } from 'primeng/messages';
 import { HomedataComponent } from '../../components/homedata/homedata.component';
-import { DataViewModule } from 'primeng/dataview';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [JsonPipe,ProgressBarModule,MessagesModule,HomedataComponent],
+  imports: [JsonPipe,ProgressBarModule,MessagesModule,HomedataComponent,BreadcrumbModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -20,14 +21,16 @@ export class HomeComponent {
     loading:true,
     error:null
   });
+  home= {label: 'Home',routerLink: '',icon: 'pi pi-home'}
+  path:any=[]
 
-
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,private router:Router) { }
  
 
   @Input()
   set filter(filter: string) {
-    console.log(filter)
+    this.path=[];
+    this.path.push(filter=='category'?{label: 'Categorías',icon: 'pi pi-th-large'}:{label: 'Nacionalidades',icon: 'pi pi-flag'});
     this.api.getData(filter).subscribe({
       next: (data) => {
         console.log(data)
@@ -54,4 +57,8 @@ export class HomeComponent {
     })
   }
 
+  seeRecipes(type:string){
+    this.router.navigateByUrl(`/recipes?filter=${this.$state().filter}&type=${type}`)
+  }
+  
 }
