@@ -21,4 +21,8 @@ export class ApiService {
     }
   
   }
+
+  getRecipesByCategory(category:string){
+    return this.http.get(environment.api.filterByCategory+category);
+  }
 }

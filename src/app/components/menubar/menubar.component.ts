@@ -3,11 +3,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem, PrimeIcons } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { AuthService } from '../../services/auth.service';
+import { BreadcumbComponent } from '../breadcumb/breadcumb.component';
 
 @Component({
   selector: 'app-menubar',
   standalone: true,
-  imports: [MenubarModule, RouterLink, RouterLinkActive],
+  imports: [MenubarModule, RouterLink, RouterLinkActive,BreadcumbComponent],
   templateUrl: './menubar.component.html',
   styleUrl: './menubar.component.css'
 })

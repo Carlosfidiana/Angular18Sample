@@ -6,6 +6,7 @@ import { MessagesModule } from 'primeng/messages';
 import { HomedataComponent } from '../../components/homedata/homedata.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { Router } from '@angular/router';
+import { BreadcumbService } from '../../services/breadcumb.service';
 
 @Component({
   selector: 'app-home',
@@ -21,16 +22,14 @@ export class HomeComponent {
     loading:true,
     error:null
   });
-  home= {label: 'Home',routerLink: '',icon: 'pi pi-home'}
-  path:any=[]
 
-  constructor(private api: ApiService,private router:Router) { }
+  constructor(private api: ApiService,private router:Router,private bcService:BreadcumbService
+  ) { }
  
 
   @Input()
   set filter(filter: string) {
-    this.path=[];
-    this.path.push(filter=='category'?{label: 'Categorías',icon: 'pi pi-th-large'}:{label: 'Nacionalidades',icon: 'pi pi-flag'});
+    this.bcService.change=(filter=='category'?{label: 'Categorías',icon: 'pi pi-th-large',routerLink: '/home',queryParams: { filter: 'category' },level:0}:{label: 'Nacionalidades',icon: 'pi pi-flag',routerLink: '/home',queryParams: { filter: 'category' },level:0});
     this.api.getData(filter).subscribe({
       next: (data) => {
         console.log(data)
